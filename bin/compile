@@ -2,7 +2,7 @@
 # bin/compile <build-dir> <cache-dir>
 
 # fail fast
-set -e
+set -ex
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_start"
 
