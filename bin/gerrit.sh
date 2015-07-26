@@ -189,6 +189,8 @@ test -r "$GERRIT_CONFIG" || {
    exit 1
 }
 
+echo "gerrit config location: $GERRIT_CONFIG"
+
 # Set proper PORT in listenUrl
 listenUrl=`git config --file "$GERRIT_CONFIG" "httpd.listenUrl" | sed -re "s/:[^\/]+/:$PORT/"`
 git config --file "$GERRIT_CONFIG" "httpd.listenUrl" $listenUrl
