@@ -61,6 +61,6 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/java.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="/app/.jdk/bin:$PATH"' >> $PROFILE_PATH
 echo 'export JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS -Djava.rmi.server.useCodebaseOnly=true"' >> $PROFILE_PATH
-echo 'export JAVA_HOME=/app/.sdk' >> $PROFILE_PATH
+echo 'export JAVA_HOME=/app/.jdk' >> $PROFILE_PATH
 
 logger -p user.notice -t "slugc[$$]" "gerrit runner end $LOGGER_FLAGS"
