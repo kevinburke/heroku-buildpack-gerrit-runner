@@ -9,7 +9,11 @@ mkdir -p "$BUILD_DIR/bin"
 cp -a "$BIN_DIR/gerrit.sh" "$BUILD_DIR/bin/"
 
 # gerrit basePath
+mkdir -p "$BUILD_DIR/cache"
+mkdir -p "$BUILD_DIR/data"
 mkdir -p "$BUILD_DIR/git"
+mkdir -p "$BUILD_DIR/index"
+mkdir -p "$BUILD_DIR/logs"
 
 cat <<EOF
 ---
