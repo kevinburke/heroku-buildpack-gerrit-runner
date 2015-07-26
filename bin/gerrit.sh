@@ -201,6 +201,8 @@ git config --file "$GERRIT_CONFIG" 'database.database' "$GERRIT_DB_DATABASE"
 git config --file "$GERRIT_CONFIG" 'database.username' "$GERRIT_DB_USERNAME"
 git config --file "$GERRIT_CONFIG" 'database.password' "$GERRIT_DB_PASSWORD"
 
+git config --file "$GERRIT_CONFIG" 'gerrit.basePath' "$GERRIT_SITE/projects"
+
 GERRIT_PID="$GERRIT_SITE/logs/gerrit.pid"
 GERRIT_RUN="$GERRIT_SITE/logs/gerrit.run"
 GERRIT_TMP="$GERRIT_SITE/tmp"
