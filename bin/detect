@@ -3,8 +3,5 @@
 
 BUILD_DIR=$1
 
-find . 
-env
 echo "gerrit-runner"
-test -n "$GERRIT_SITE"
 exit 0
