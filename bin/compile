@@ -74,6 +74,7 @@ git config --file "$GERRIT_CONFIG" 'database.username' "$GERRIT_DB_USERNAME"
 git config --file "$GERRIT_CONFIG" 'database.password' "$GERRIT_DB_PASSWORD"
 
 git config --file "$GERRIT_CONFIG" 'gerrit.basePath' "$GERRIT_SITE/git"
+git config --file "$GERRIT_CONFIG" 'gerrit.canonicalWebUrl' "$GERRIT_WEB_URL"
 
 chmod 755 "$BIN_DIR/gerrit.sh"
 mkdir -p "$BUILD_DIR/bin"
