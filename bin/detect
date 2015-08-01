@@ -3,6 +3,5 @@
 
 BUILD_DIR=$1
 
-find .
 echo "gerrit-runner"
 test -n "$GERRIT_SITE"
