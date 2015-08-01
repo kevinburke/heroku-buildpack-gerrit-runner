@@ -14,7 +14,7 @@ cat "$BIN_DIR/../etc/gerrit.config"
 echo "echoing secure config"
 cat "$BIN_DIR/../etc/secure.config"
 cp -a "$BIN_DIR/../etc/gerrit.config" "$BUILD_DIR/etc/"
-cp -a "$BIN_DIR/../etc/secure.config" "$BUILD_DIR/etc/"
+cp -a "$BIN_DIR/../etc/secure.config" "$BUILD_DIR/etc/" || true
 
 # gerrit basePath
 mkdir -p "$BUILD_DIR/cache"
