@@ -197,19 +197,6 @@ listenUrl=`git config --file "$GERRIT_CONFIG" "httpd.listenUrl" | sed -re "s/:[^
 git config --file "$GERRIT_CONFIG" "httpd.listenUrl" $listenUrl
 echo "Set httpd.listenUrl to $listenUrl"
 
-# set github configs
-git config --file "$GERRIT_CONFIG" 'github.clientId' "$GERRIT_GITHUB_CLIENT_ID"
-git config --file "$GERRIT_SECURE_CONFIG" 'github.clientSecret' "$GERRIT_GITHUB_CLIENT_SECRET"
-
-# set database url
-git config --file "$GERRIT_CONFIG" 'database.type' 'POSTGRESQL'
-git config --file "$GERRIT_CONFIG" 'database.hostname' "$GERRIT_DB_HOSTNAME"
-git config --file "$GERRIT_CONFIG" 'database.database' "$GERRIT_DB_DATABASE"
-git config --file "$GERRIT_CONFIG" 'database.username' "$GERRIT_DB_USERNAME"
-git config --file "$GERRIT_CONFIG" 'database.password' "$GERRIT_DB_PASSWORD"
-
-git config --file "$GERRIT_CONFIG" 'gerrit.basePath' "$GERRIT_SITE/git"
-
 GERRIT_PID="$GERRIT_SITE/logs/gerrit.pid"
 GERRIT_RUN="$GERRIT_SITE/logs/gerrit.run"
 GERRIT_TMP="$GERRIT_SITE/tmp"

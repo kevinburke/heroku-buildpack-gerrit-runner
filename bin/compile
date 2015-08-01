@@ -57,6 +57,44 @@ config_vars:
 EOF
 fi
 
+env
+
+GERRIT_CONFIG="$BIN_DIR/../etc/gerrit.config"
+GERRIT_SECURE_CONFIG="$BIN_DIR/../etc/secure.config"
+
+# set github configs
+git config --file "$GERRIT_CONFIG" 'github.clientId' "$GERRIT_GITHUB_CLIENT_ID"
+git config --file "$GERRIT_SECURE_CONFIG" 'github.clientSecret' "$GERRIT_GITHUB_CLIENT_SECRET"
+
+# set database url
+git config --file "$GERRIT_CONFIG" 'database.type' 'POSTGRESQL'
+git config --file "$GERRIT_CONFIG" 'database.hostname' "$GERRIT_DB_HOSTNAME"
+git config --file "$GERRIT_CONFIG" 'database.database' "$GERRIT_DB_DATABASE"
+git config --file "$GERRIT_CONFIG" 'database.username' "$GERRIT_DB_USERNAME"
+git config --file "$GERRIT_CONFIG" 'database.password' "$GERRIT_DB_PASSWORD"
+
+git config --file "$GERRIT_CONFIG" 'gerrit.basePath' "$GERRIT_SITE/git"
+
+chmod 755 "$BIN_DIR/gerrit.sh"
+mkdir -p "$BUILD_DIR/bin"
+cp -a "$BIN_DIR/gerrit.sh" "$BUILD_DIR/bin/"
+
+mkdir -p "$BUILD_DIR/etc"
+cp -a "$BIN_DIR/../etc/gerrit.config" "$BUILD_DIR/etc/"
+cp -a "$BIN_DIR/../etc/secure.config" "$BUILD_DIR/etc/" || true
+cat "$BUILD_DIR/etc/gerrit.config"
+echo "echoing secure config"
+cat "$BUILD_DIR/etc/secure.config" || true
+
+bash "$BUILD_DIR/gerrit.sh" check
+
+mkdir -p "$BUILD_DIR/cache"
+mkdir -p "$BUILD_DIR/data"
+mkdir -p "$BUILD_DIR/git"
+mkdir -p "$BUILD_DIR/index"
+mkdir -p "$BUILD_DIR/logs"
+
+
 PROFILE_PATH="$BUILD_DIR/.profile.d/java.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="/app/.jdk/bin:$PATH"' >> $PROFILE_PATH
