@@ -86,7 +86,7 @@ cat "$BUILD_DIR/etc/gerrit.config"
 echo "echoing secure config"
 cat "$BUILD_DIR/etc/secure.config" || true
 
-bash "$BUILD_DIR/gerrit.sh" check
+bash "$BIN_DIR/gerrit.sh" check
 
 mkdir -p "$BUILD_DIR/cache"
 mkdir -p "$BUILD_DIR/data"
