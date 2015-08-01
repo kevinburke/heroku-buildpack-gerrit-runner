@@ -180,6 +180,7 @@ fi
 # Check that Gerrit is where we think it is
 #####################################################
 GERRIT_CONFIG="$GERRIT_SITE/$GERRIT_INSTALL_TRACE_FILE"
+GERRIT_SECURE_CONFIG="$GERRIT_SITE/etc/secure.config"
 test -f "$GERRIT_CONFIG" || {
   echo "gerrit-start[$$]" "** ERROR: Gerrit is not initialized in $GERRIT_SITE"
    exit 1
@@ -195,6 +196,10 @@ echo "gerrit config location: $GERRIT_CONFIG"
 listenUrl=`git config --file "$GERRIT_CONFIG" "httpd.listenUrl" | sed -re "s/:[^\/]+/:$PORT/"`
 git config --file "$GERRIT_CONFIG" "httpd.listenUrl" $listenUrl
 echo "Set httpd.listenUrl to $listenUrl"
+
+# set github configs
+git config --file "$GERRIT_CONFIG" 'github.clientId' "$GERRIT_GITHUB_CLIENT_ID"
+git config --file "$GERRIT_SECURE_CONFIG" 'github.clientSecret' "$GERRIT_GITHUB_CLIENT_SECRET"
 
 # set database url
 git config --file "$GERRIT_CONFIG" 'database.type' 'POSTGRESQL'
