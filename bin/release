@@ -25,13 +25,6 @@ mkdir -p "$BUILD_DIR/logs"
 
 cat <<EOF
 ---
-config_vars:
-  PATH: /app/.jdk/bin:/usr/local/bin:/usr/bin:/bin
-  JAVA_HOME: /app/.jdk
-  JAVA_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops
-  MAVEN_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops
-  START_STOP_DAEMON: 0
-
 default_process_types:
   web: echo "starting Gerrit" && bash bin/gerrit.sh status && java -jar bin/gerrit.war reindex -d /app && bash bin/gerrit.sh run
 EOF
