@@ -86,14 +86,11 @@ cat "$BUILD_DIR/etc/gerrit.config"
 echo "echoing secure config"
 cat "$BUILD_DIR/etc/secure.config" || true
 
-bash "$BIN_DIR/gerrit.sh" check
-
 mkdir -p "$BUILD_DIR/cache"
 mkdir -p "$BUILD_DIR/data"
 mkdir -p "$BUILD_DIR/git"
 mkdir -p "$BUILD_DIR/index"
 mkdir -p "$BUILD_DIR/logs"
-
 
 PROFILE_PATH="$BUILD_DIR/.profile.d/java.sh"
 mkdir -p $(dirname $PROFILE_PATH)
