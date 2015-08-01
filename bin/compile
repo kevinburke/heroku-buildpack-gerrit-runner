@@ -63,6 +63,6 @@ echo 'export PATH="/app/.jdk/bin:$PATH"' >> $PROFILE_PATH
 echo 'export JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS -Djava.rmi.server.useCodebaseOnly=true"' >> $PROFILE_PATH
 echo 'export JAVA_HOME=/app/.jdk' >> $PROFILE_PATH
 
-PATH=/app/.jdk/bin:/usr/local/bin:/usr/bin:/bin bash ${BIN_DIR}/gerrit.sh status
-PATH=/app/.jdk/bin:/usr/local/bin:/usr/bin:/bin java -jar ${BUILD_DIR}/bin/gerrit.war reindex -d /app
+JAVA_HOME=/app/.jdk PATH=/app/.jdk/bin:/usr/local/bin:/usr/bin:/bin bash ${BIN_DIR}/gerrit.sh status
+JAVA_HOME=/app/.jdk PATH=/app/.jdk/bin:/usr/local/bin:/usr/bin:/bin java -jar ${BUILD_DIR}/bin/gerrit.war reindex -d /app
 logger -p user.notice -t "slugc[$$]" "gerrit runner end $LOGGER_FLAGS"
