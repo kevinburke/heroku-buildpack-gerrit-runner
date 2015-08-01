@@ -179,8 +179,8 @@ fi
 #####################################################
 # Check that Gerrit is where we think it is
 #####################################################
-GERRIT_CONFIG="$GERRIT_SITE/$GERRIT_INSTALL_TRACE_FILE"
 GERRIT_SECURE_CONFIG="$GERRIT_SITE/etc/secure.config"
+GERRIT_CONFIG="$GERRIT_SITE/$GERRIT_INSTALL_TRACE_FILE"
 test -f "$GERRIT_CONFIG" || {
   echo "gerrit-start[$$]" "** ERROR: Gerrit is not initialized in $GERRIT_SITE"
    exit 1
