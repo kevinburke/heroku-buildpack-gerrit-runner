@@ -22,7 +22,7 @@ shopt -s dotglob
 mkdir -p $CACHE_DIR
 
 echo -n "-----> Installing jvm-common ... "
-curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xz
+curl --silent --location https://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xz
 . bin/util
 . bin/java
 
