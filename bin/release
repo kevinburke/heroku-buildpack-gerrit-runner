@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+set -exo pipefail
+
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 BUILD_DIR=$1
 
