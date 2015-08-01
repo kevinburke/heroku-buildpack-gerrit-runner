@@ -3,5 +3,6 @@
 
 BUILD_DIR=$1
 
+find .
 echo "gerrit-runner"
-test -f ${BUILD_DIR}/etc/gerrit.config
+test -n "$GERRIT_SITE"
