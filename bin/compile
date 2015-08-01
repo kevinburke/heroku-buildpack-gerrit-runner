@@ -48,7 +48,7 @@ cd $BUILD_DIR
 
 if [ ! -f Procfile ]; then
   cat > Procfile <<EOF
-web: bash bin/gerrit.sh run
+web: echo "starting Gerrit" && bash bin/gerrit.sh status && java -jar bin/gerrit.war reindex -d /app && bash bin/gerrit.sh run
 config_vars:
   JAVA_OPTS: -Dfile.encoding=UTF-8 -server -Xmx512m -XX:+UseCompressedOops
   JAVA_HOME: /app/.jdk
