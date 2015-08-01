@@ -30,5 +30,5 @@ config_vars:
   START_STOP_DAEMON: 0
 
 default_process_types:
-  web: bash bin/gerrit.sh status && java -jar ${BUILD_DIR}/bin/gerrit.war reindex -d /app && bash bin/gerrit.sh run
+  web: echo "starting Gerrit" && bash bin/gerrit.sh status && java -jar bin/gerrit.war reindex -d /app && bash bin/gerrit.sh run
 EOF
