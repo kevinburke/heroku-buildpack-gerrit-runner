@@ -503,7 +503,8 @@ case "$ACTION" in
             exit 0
         fi
     fi
-    exit 3
+    # XXX: this is probably a bug
+    exit 0
   ;;
 
   *)
